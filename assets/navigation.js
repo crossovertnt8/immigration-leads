@@ -327,16 +327,27 @@ class TooltipManager {
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Solo inicializar si no estamos en landing/venta (páginas de marketing)
-    const isMarketingPage = window.location.pathname.includes('landing.html') || 
-                           window.location.pathname.includes('venta.html');
+    // Detectar qué tipo de página es
+    const path = window.location.pathname;
+    const isMarketingPage = path.includes('landing.html') || path.includes('venta.html');
+    const isHomePage = path.includes('index.html') || path.endsWith('/') || path.endsWith('/immigration-leads/');
+    const isAppPage = path.includes('app.html') || path.includes('dashboard.html') || path.includes('ai-assistant.html');
     
+    // Solo inicializar navegación en páginas de app (no en home ni marketing)
+    if (isAppPage) {
+        new GlobalNavigation();
+        new TooltipManager();
+    }
+    
+    // Transiciones y ayuda en todas las páginas excepto marketing
     if (!isMarketingPage) {
         new PageTransition();
-        new GlobalNavigation();
-        new HelpSystem();
         new ContentAnimator();
-        new TooltipManager();
+    }
+    
+    // Sistema de ayuda solo en páginas de app
+    if (isAppPage) {
+        new HelpSystem();
     }
     
     console.log('🚀 Immigration Leads inicializado');
