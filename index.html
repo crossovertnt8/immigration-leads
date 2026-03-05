@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immigration Leads - Portal</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #1e3a5f;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+        
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        .card.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .card.primary p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚖️ Immigration Leads</h1>
+            <p>Sistema Inteligente de Gestión de Leads para Despachos de Inmigración</p>
+        </div>
+        
+        <div class="cards-grid">
+            <a href="landing.html" class="card">
+                <div class="card-icon">🏠</div>
+                <h2>Landing Page</h2>
+                <p>Página de captura de leads para marketing</p>
+            </a>
+            
+            <a href="app.html" class="card primary">
+                <div class="card-icon">📋</div>
+                <h2>Panel de Gestión</h2>
+                <p>Dashboard principal con scoring automático</p>
+            </a>
+            
+            <a href="dashboard.html" class="card">
+                <div class="card-icon">📊</div>
+                <h2>Analytics</h2>
+                <p>Métricas, gráficas y exportación de datos</p>
+            </a>
+            
+            <a href="ai-assistant.html" class="card">
+                <div class="card-icon">🤖</div>
+                <h2>AI Assistant</h2>
+                <p>Sugerencias inteligentes y predicción de conversión</p>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>v2.0 - Sistema Avanzado con IA y Analytics</p>
+            <p style="margin-top: 0.5rem;">📄 <a href="README.md" style="color: white; text-decoration: underline;">Ver Documentación Completa</a></p>
+        </div>
+    </div>
+</body>
+</html>

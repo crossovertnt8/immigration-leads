@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immigration Leads - Sistema para Despachos de Inmigración</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); color: white; padding: 1rem 2rem; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .lang-selector button { background: transparent; border: 1px solid white; color: white; padding: 0.5rem 1rem; margin-left: 0.5rem; cursor: pointer; border-radius: 4px; }
+        .lang-selector button.active { background: white; color: #1e3a5f; }
+        
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); color: white; padding: 8rem 2rem 4rem; text-align: center; }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; }
+        .hero .cta-button { background: #f59e0b; color: #1e3a5f; padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
+        .hero .cta-button:hover { background: #fbbf24; }
+        
+        /* Features */
+        .features { padding: 4rem 2rem; background: #f8fafc; }
+        .features h2 { text-align: center; margin-bottom: 3rem; color: #1e3a5f; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .feature-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .feature-card h3 { color: #1e3a5f; margin-bottom: 1rem; }
+        
+        /* Pricing */
+        .pricing { padding: 4rem 2rem; }
+        .pricing h2 { text-align: center; margin-bottom: 3rem; color: #1e3a5f; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .pricing-card { background: white; border: 2px solid #e2e8f0; padding: 2rem; border-radius: 8px; text-align: center; }
+        .pricing-card.featured { border-color: #f59e0b; position: relative; }
+        .pricing-card.featured::before { content: "POPULAR"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #f59e0b; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.8rem; }
+        .pricing-card h3 { color: #1e3a5f; margin-bottom: 0.5rem; }
+        .pricing-card .price { font-size: 2.5rem; color: #1e3a5f; font-weight: bold; margin: 1rem 0; }
+        .pricing-card .price span { font-size: 1rem; color: #64748b; }
+        .pricing-card ul { list-style: none; margin: 1.5rem 0; text-align: left; }
+        .pricing-card li { padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; }
+        .pricing-card li::before { content: "✓ "; color: #10b981; font-weight: bold; }
+        .pricing-card button { background: #1e3a5f; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; width: 100%; margin-top: 1rem; }
+        .pricing-card button:hover { background: #2d5a87; }
+        
+        /* Testimonials */
+        .testimonials { padding: 4rem 2rem; background: #f8fafc; }
+        .testimonials h2 { text-align: center; margin-bottom: 3rem; color: #1e3a5f; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .testimonial-card { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .testimonial-card p { font-style: italic; color: #64748b; margin-bottom: 1rem; }
+        .testimonial-card .author { font-weight: bold; color: #1e3a5f; }
+        
+        /* Contact Form */
+        .contact { padding: 4rem 2rem; }
+        .contact h2 { text-align: center; margin-bottom: 2rem; color: #1e3a5f; }
+        .contact-form { max-width: 500px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+        .contact-form button { background: #f59e0b; color: #1e3a5f; padding: 1rem 2rem; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; width: 100%; }
+        .contact-form button:hover { background: #fbbf24; }
+        
+        /* Footer */
+        footer { background: #1e3a5f; color: white; text-align: center; padding: 2rem; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">⚖️ Immigration Leads</div>
+            <div class="lang-selector">
+                <button onclick="setLang('es')" id="btn-es" class="active">ES</button>
+                <button onclick="setLang('en')" id="btn-en">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 data-es="Filtro automático de casos no viables" data-en="Automatic non-viable case filter">Filtro automático de casos no viables</h1>
+        <p data-es="Agenda llena de leads cualificados para tu despacho de inmigración" data-en="Full agenda of qualified leads for your immigration law firm">Agenda llena de leads cualificados para tu despacho de inmigración</p>
+        <a href="#contact" class="cta-button" data-es="Solicitar Demo Gratuita" data-en="Request Free Demo">Solicitar Demo Gratuita</a>
+    </section>
+
+    <section class="features">
+        <h2 data-es="¿Por qué elegir nuestro sistema?" data-en="Why choose our system?">¿Por qué elegir nuestro sistema?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 data-es="🎯 Scoring Automático" data-en="🎯 Automatic Scoring">🎯 Scoring Automático</h3>
+                <p data-es="Filtra casos no viables antes de que lleguen a ti. Ahorra horas de trabajo." data-en="Filter non-viable cases before they reach you. Save hours of work.">Filtra casos no viables antes de que lleguen a ti. Ahorra horas de trabajo.</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-es="📊 Dashboard Inteligente" data-en="📊 Smart Dashboard">📊 Dashboard Inteligente</h3>
+                <p data-es="Gestiona todos tus leads en un solo lugar. Priorizados por viabilidad." data-en="Manage all your leads in one place. Prioritized by viability.">Gestiona todos tus leads en un solo lugar. Priorizados por viabilidad.</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-es="🌐 100% Bilingüe" data-en="🌐 100% Bilingual">🌐 100% Bilingüe</h3>
+                <p data-es="Español e inglés para tus clientes. Amplía tu alcance." data-en="Spanish and English for your clients. Expand your reach.">Español e inglés para tus clientes. Amplía tu alcance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <h2 data-es="Planes simples y transparentes" data-en="Simple and transparent plans">Planes simples y transparentes</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 data-es="Setup" data-en="Setup">Setup</h3>
+                <div class="price" data-es="GRATIS" data-en="FREE">GRATIS</div>
+                <ul>
+                    <li data-es="Configuración inicial" data-en="Initial configuration">Configuración inicial</li>
+                    <li data-es="Formulario personalizado" data-en="Custom form">Formulario personalizado</li>
+                    <li data-es="Integración completa" data-en="Full integration">Integración completa</li>
+                </ul>
+                <button data-es="Comenzar" data-en="Get Started">Comenzar</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3 data-es="Mensual" data-en="Monthly">Mensual</h3>
+                <div class="price">300€<span>/mes</span></div>
+                <ul>
+                    <li data-es="Hasta 50 leads/mes" data-en="Up to 50 leads/month">Hasta 50 leads/mes</li>
+                    <li data-es="Dashboard completo" data-en="Full dashboard">Dashboard completo</li>
+                    <li data-es="Soporte prioritario" data-en="Priority support">Soporte prioritario</li>
+                    <li data-es="Actualizaciones incluidas" data-en="Updates included">Actualizaciones incluidas</li>
+                </ul>
+                <button data-es="Seleccionar" data-en="Select">Seleccionar</button>
+            </div>
+            <div class="pricing-card">
+                <h3 data-es="Por Lead" data-en="Per Lead">Por Lead</h3>
+                <div class="price">50€<span>/cita</span></div>
+                <ul>
+                    <li data-es="Solo pagas por citas" data-en="Only pay for appointments">Solo pagas por citas</li>
+                    <li data-es="Leads pre-cualificados" data-en="Pre-qualified leads">Leads pre-cualificados</li>
+                    <li data-es="Sin compromiso" data-en="No commitment">Sin compromiso</li>
+                </ul>
+                <button data-es="Seleccionar" data-en="Select">Seleccionar</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2 data-es="Lo que dicen nuestros clientes" data-en="What our clients say">Lo que dicen nuestros clientes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p data-es="&quot;Desde que uso este sistema, mi agenda está siempre llena. El filtro automático me ahorra horas de trabajo.&quot;" data-en="&quot;Since I started using this system, my agenda is always full. The automatic filter saves me hours of work.&quot;">"Desde que uso este sistema, mi agenda está siempre llena. El filtro automático me ahorra horas de trabajo."</p>
+                <div class="author">— María G., Madrid</div>
+            </div>
+            <div class="testimonial-card">
+                <p data-es="&quot;La mejor inversión para mi despacho. Los leads vienen pre-cualificados y listos para convertir.&quot;" data-en="&quot;The best investment for my firm. Leads come pre-qualified and ready to convert.&quot;">"La mejor inversión para mi despacho. Los leads vienen pre-cualificados y listos para convertir."</p>
+                <div class="author">— Carlos R., Barcelona</div>
+            </div>
+            <div class="testimonial-card">
+                <p data-es="&quot;El sistema bilingüe me ha permitido captar clientes internacionales. Increíble resultado.&quot;" data-en="&quot;The bilingual system allowed me to attract international clients. Amazing results.&quot;">"El sistema bilingüe me ha permitido captar clientes internacionales. Increíble resultado."</p>
+                <div class="author">— Laura M., Valencia</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 data-es="¿Listo para empezar?" data-en="Ready to start?">¿Listo para empezar?</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <input type="text" data-placeholder-es="Nombre completo" data-placeholder-en="Full name" placeholder="Nombre completo" required>
+            <input type="email" data-placeholder-es="Email" data-placeholder-en="Email" placeholder="Email" required>
+            <input type="tel" data-placeholder-es="Teléfono" data-placeholder-en="Phone" placeholder="Teléfono">
+            <textarea data-placeholder-es="Cuéntanos sobre tu despacho..." data-placeholder-en="Tell us about your law firm..." placeholder="Cuéntanos sobre tu despacho..." rows="4"></textarea>
+            <button type="submit" data-es="Enviar solicitud" data-en="Send request">Enviar solicitud</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Immigration Leads. <span data-es="Todos los derechos reservados." data-en="All rights reserved.">Todos los derechos reservados.</span></p>
+    </footer>
+
+    <script>
+        let currentLang = 'es';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('[data-es]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            
+            document.querySelectorAll('[data-placeholder-es]').forEach(el => {
+                el.placeholder = el.getAttribute(`data-placeholder-${lang}`);
+            });
+            
+            localStorage.setItem('immigration-lang', lang);
+        }
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const msg = currentLang === 'es' 
+                ? '¡Gracias! Te contactaremos pronto.' 
+                : 'Thank you! We will contact you soon.';
+            alert(msg);
+            e.target.reset();
+        }
+
+        const savedLang = localStorage.getItem('immigration-lang') || 'es';
+        setLang(savedLang);
+    </script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant - Immigration Leads</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            color: #1e3a5f;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a {
+            text-decoration: none;
+            color: #1e3a5f;
+            padding: 0.5rem 1.5rem;
+            background: #f59e0b;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .nav-links a:hover {
+            background: #fbbf24;
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+        }
+        
+        .lead-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .lead-item {
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+        
+        .lead-item:hover {
+            background: #e2e8f0;
+            transform: translateX(5px);
+        }
+        
+        .lead-item.selected {
+            background: #dbeafe;
+            border-left-color: #3b82f6;
+        }
+        
+        .lead-item.high-score {
+            border-left-color: #10b981;
+        }
+        
+        .lead-item-name {
+            font-weight: bold;
+            color: #1e3a5f;
+            margin-bottom: 0.25rem;
+        }
+        
+        .lead-item-score {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        .ai-panel {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .ai-panel h2 {
+            color: #1e3a5f;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .ai-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .ai-section h3 {
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .conversion-probability {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .probability-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .probability-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #667eea);
+            transition: width 0.5s ease;
+        }
+        
+        .suggestion-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .suggestion-card strong {
+            color: #1e3a5f;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .template-message {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #cbd5e1;
+            font-family: monospace;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            position: relative;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .copy-btn:hover {
+            background: #2563eb;
+        }
+        
+        .whatsapp-btn, .telegram-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+        
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .telegram-btn:hover {
+            background: #006699;
+            transform: translateY(-2px);
+        }
+        
+        .ai-thinking {
+            display: inline-block;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">🤖 AI Assistant - Immigration Leads</div>
+        <div class="nav-links">
+            <a href="app.html">📋 Panel de Leads</a>
+            <a href="dashboard.html">📊 Dashboard</a>
+            <a href="landing.html">🏠 Landing</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <h3>👥 Seleccionar Lead</h3>
+            <div class="lead-list" id="lead-list"></div>
+        </aside>
+
+        <main class="ai-panel">
+            <h2>🤖 <span class="ai-thinking">AI</span> Assistant</h2>
+            
+            <div id="ai-content">
+                <p style="text-align: center; color: #64748b; padding: 3rem;">
+                    Selecciona un lead de la lista para ver sugerencias personalizadas
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const leads = JSON.parse(localStorage.getItem('immigration-leads')) || [];
+        let selectedLead = null;
+
+        function renderLeadList() {
+            const container = document.getElementById('lead-list');
+            
+            if (leads.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #64748b;">No hay leads disponibles</p>';
+                return;
+            }
+            
+            const sortedLeads = [...leads].sort((a, b) => b.score - a.score);
+            
+            container.innerHTML = sortedLeads.map(lead => `
+                <div class="lead-item ${lead.score >= 70 ? 'high-score' : ''}" 
+                     onclick="selectLead('${lead.id}')">
+                    <div class="lead-item-name">${lead.name}</div>
+                    <div class="lead-item-score">Score: ${lead.score}/100 • ${lead.country}</div>
+                </div>
+            `).join('');
+        }
+
+        function selectLead(id) {
+            selectedLead = leads.find(l => l.id === id);
+            
+            document.querySelectorAll('.lead-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+            event.target.closest('.lead-item').classList.add('selected');
+            
+            renderAIAssistant();
+        }
+
+        function calculateConversionProbability(lead) {
+            // AI-like algorithm to predict conversion
+            let probability = 0;
+            
+            // Score weight: 40%
+            probability += (lead.score / 100) * 40;
+            
+            // Urgency weight: 20%
+            const urgencyScores = { high: 20, medium: 12, low: 5 };
+            probability += urgencyScores[lead.urgency] || 0;
+            
+            // Budget weight: 20%
+            const budgetScores = { high: 20, medium: 12, low: 5 };
+            probability += budgetScores[lead.budget] || 0;
+            
+            // Status weight: 20%
+            const statusScores = { new: 15, contacted: 18, scheduled: 20, closed: 0 };
+            probability += statusScores[lead.status] || 0;
+            
+            return Math.min(Math.round(probability), 95);
+        }
+
+        function generateSuggestions(lead) {
+            const suggestions = [];
+            
+            if (lead.score >= 70) {
+                suggestions.push({
+                    icon: '⚡',
+                    title: 'Prioridad Alta',
+                    text: 'Este lead tiene alta probabilidad de conversión. Contacta dentro de las próximas 2 horas para maximizar éxito.'
+                });
+            }
+            
+            if (lead.urgency === 'high' && lead.status === 'new') {
+                suggestions.push({
+                    icon: '🚨',
+                    title: 'Acción Inmediata',
+                    text: 'Lead marcado como urgente. Responde HOY. Ofrece una consulta exprés en las próximas 24-48 horas.'
+                });
+            }
+            
+            if (lead.budget === 'high') {
+                suggestions.push({
+                    icon: '💰',
+                    title: 'Cliente Premium',
+                    text: 'Presupuesto alto. Enfoca tu pitch en servicio premium, seguimiento personalizado y resultados garantizados.'
+                });
+            }
+            
+            if (['work', 'investor'].includes(lead.visaType)) {
+                suggestions.push({
+                    icon: '💼',
+                    title: 'Caso Complejo',
+                    text: 'Este tipo de visa suele requerir más documentación. Prepara un checklist detallado para la primera consulta.'
+                });
+            }
+            
+            if (lead.situation === 'deportation') {
+                suggestions.push({
+                    icon: '⚖️',
+                    title: 'Caso Crítico',
+                    text: 'Situación delicada. Transmite empatía, confidencialidad y tu experiencia en casos similares. Ofrece consulta GRATIS.'
+                });
+            }
+            
+            if (suggestions.length === 0) {
+                suggestions.push({
+                    icon: '✅',
+                    title: 'Approach Estándar',
+                    text: 'Presenta tus servicios de manera profesional. Pregunta por disponibilidad para consulta inicial.'
+                });
+            }
+            
+            return suggestions;
+        }
+
+        function generateMessageTemplate(lead) {
+            const templates = {
+                high_score: `Hola ${lead.name},
+
+Soy [TU NOMBRE] del Despacho [NOMBRE]. He revisado tu caso de ${getVisaLabel(lead.visaType)} y creo que puedo ayudarte.
+
+Tengo disponibilidad para una consulta inicial MAÑANA. ¿Te viene bien a las [HORA]?
+
+Mi experiencia incluye casos similares de ${lead.country} con excelente tasa de éxito.
+
+¿Hablamos?`,
+                
+                urgent: `URGENTE - ${lead.name}
+
+Recibí tu solicitud marcada como urgente.
+
+Puedo atenderte HOY. Tengo un hueco a las [HORA].
+
+Casos como el tuyo requieren acción inmediata. Llámame al [TU TELÉFONO] o confirma aquí.
+
+No esperemos más.`,
+                
+                standard: `Hola ${lead.name},
+
+Gracias por contactarnos. Revisé tu consulta sobre ${getVisaLabel(lead.visaType)}.
+
+¿Cuándo podrías para una videollamada de 20 minutos? Sin compromiso.
+
+Te explicaré el proceso, plazos y costes exactos para tu caso.
+
+Saludos,
+[TU NOMBRE]`
+            };
+            
+            if (lead.score >= 70 && lead.urgency === 'high') return templates.urgent;
+            if (lead.score >= 60) return templates.high_score;
+            return templates.standard;
+        }
+
+        function getVisaLabel(type) {
+            const labels = {
+                work: 'visa de trabajo',
+                student: 'visa de estudiante',
+                family: 'reagrupación familiar',
+                investor: 'visa de inversionista',
+                tourist: 'visa de turista',
+                other: 'trámite migratorio'
+            };
+            return labels[type] || type;
+        }
+
+        function renderAIAssistant() {
+            if (!selectedLead) return;
+            
+            const probability = calculateConversionProbability(selectedLead);
+            const suggestions = generateSuggestions(selectedLead);
+            const template = generateMessageTemplate(selectedLead);
+            
+            document.getElementById('ai-content').innerHTML = `
+                <div class="ai-section">
+                    <h3>🎯 Probabilidad de Conversión</h3>
+                    <div class="conversion-probability">${probability}%</div>
+                    <div class="probability-bar">
+                        <div class="probability-fill" style="width: ${probability}%"></div>
+                    </div>
+                    <p style="text-align: center; color: #64748b;">
+                        ${probability >= 70 ? '¡Alta probabilidad! Prioriza este lead.' : 
+                          probability >= 50 ? 'Probabilidad media. Vale la pena contactar.' :
+                          'Probabilidad baja. Considera automatizar el primer contacto.'}
+                    </p>
+                </div>
+
+                <div class="ai-section">
+                    <h3>💡 Sugerencias Personalizadas</h3>
+                    ${suggestions.map(s => `
+                        <div class="suggestion-card">
+                            <strong>${s.icon} ${s.title}</strong>
+                            <p>${s.text}</p>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="ai-section">
+                    <h3>💬 Plantilla de Mensaje</h3>
+                    <div class="template-message">
+                        <button class="copy-btn" onclick="copyTemplate()">📋 Copiar</button>${template}</div>
+                    <div style="margin-top: 1rem;">
+                        <button class="whatsapp-btn" onclick="sendWhatsApp()">
+                            📱 Enviar por WhatsApp
+                        </button>
+                        <button class="telegram-btn" onclick="sendTelegram()">
+                            ✈️ Enviar por Telegram
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ai-section">
+                    <h3>📊 Análisis del Lead</h3>
+                    <div class="suggestion-card">
+                        <strong>Detalles del Caso</strong>
+                        <p><strong>Nombre:</strong> ${selectedLead.name}</p>
+                        <p><strong>Email:</strong> ${selectedLead.email}</p>
+                        <p><strong>Teléfono:</strong> ${selectedLead.phone || 'No proporcionado'}</p>
+                        <p><strong>País:</strong> ${selectedLead.country}</p>
+                        <p><strong>Tipo de visa:</strong> ${getVisaLabel(selectedLead.visaType)}</p>
+                        <p><strong>Urgencia:</strong> ${selectedLead.urgency === 'high' ? 'Alta' : selectedLead.urgency === 'medium' ? 'Media' : 'Baja'}</p>
+                        <p><strong>Presupuesto:</strong> ${selectedLead.budget === 'high' ? 'Alto (>€3,000)' : selectedLead.budget === 'medium' ? 'Medio (€1,000-€3,000)' : 'Bajo (<€1,000)'}</p>
+                        ${selectedLead.notes ? `<p><strong>Notas:</strong> ${selectedLead.notes}</p>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        function copyTemplate() {
+            const template = document.querySelector('.template-message').textContent.replace('📋 Copiar', '').trim();
+            navigator.clipboard.writeText(template).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Copiado!';
+                setTimeout(() => btn.textContent = '📋 Copiar', 2000);
+            });
+        }
+
+        function sendWhatsApp() {
+            if (!selectedLead || !selectedLead.phone) {
+                alert('Este lead no tiene teléfono registrado');
+                return;
+            }
+            
+            const template = generateMessageTemplate(selectedLead);
+            const phone = selectedLead.phone.replace(/\D/g, '');
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(template)}`;
+            window.open(url, '_blank');
+        }
+
+        function sendTelegram() {
+            alert('Integración con Telegram en desarrollo. Por ahora, copia el mensaje y envíalo manualmente.');
+        }
+
+        // Initialize
+        renderLeadList();
+    </script>
+</body>
+</html>

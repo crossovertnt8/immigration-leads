@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immigration Leads - CRM Especializado para Despachos de Inmigración</title>
+    <meta name="description" content="El único CRM diseñado específicamente para abogados de inmigración. Scoring automático, IA, y más leads cualificados. Prueba gratis 14 días.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+        }
+        
+        /* Hero Ultra-Agresivo */
+        .hero { 
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%); 
+            color: white; 
+            padding: 4rem 2rem; 
+            text-align: center; 
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffffff" fill-opacity="0.05" d="M0,32L48,37.3C96,43,192,53,288,58.7C384,64,480,64,576,58.7C672,53,768,43,864,48C960,53,1056,75,1152,80C1248,85,1344,75,1392,69.3L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path></svg>');
+            background-size: cover;
+        }
+        .hero h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            position: relative;
+            z-index: 1;
+        }
+        .hero .subtitle { 
+            font-size: 1.5rem; 
+            margin-bottom: 2rem; 
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .urgency {
+            background: #ef4444;
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .hero .cta-primary { 
+            background: #f59e0b; 
+            color: #1e3a5f; 
+            padding: 1.5rem 3rem; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.3rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .hero .cta-primary:hover { 
+            background: #fbbf24; 
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(245, 158, 11, 0.6);
+        }
+        .hero .guarantee {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        /* Problema/Solución */
+        .problem-solution {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .problem-solution h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3a5f;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .comparison-box {
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .comparison-box.problem {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+        .comparison-box.solution {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+        }
+        .comparison-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .comparison-box.problem h3 { color: #ef4444; }
+        .comparison-box.solution h3 { color: #10b981; }
+        .comparison-box ul {
+            list-style: none;
+        }
+        .comparison-box.problem li::before {
+            content: "❌ ";
+            margin-right: 0.5rem;
+        }
+        .comparison-box.solution li::before {
+            content: "✅ ";
+            margin-right: 0.5rem;
+        }
+        .comparison-box li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: #f8fafc;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .social-proof h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1e3a5f;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .stat-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f59e0b;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            color: #64748b;
+            font-size: 1rem;
+        }
+        
+        /* Pricing Agresivo */
+        .pricing {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1e3a5f;
+        }
+        .pricing .subtitle-pricing {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+        }
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .pricing-card {
+            background: white;
+            border: 3px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+        .pricing-card.featured {
+            border-color: #f59e0b;
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.3);
+            transform: scale(1.05);
+        }
+        .pricing-card.featured::before {
+            content: "🔥 MÁS POPULAR";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f59e0b;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #1e3a5f;
+        }
+        .pricing-card .original-price {
+            text-decoration: line-through;
+            color: #ef4444;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .pricing-card .price {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #1e3a5f;
+            margin-bottom: 0.5rem;
+        }
+        .pricing-card .price-period {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .pricing-card .discount {
+            background: #10b981;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+        .pricing-card ul {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .pricing-card li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .pricing-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .pricing-card .cta-btn {
+            background: #1e3a5f;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        .pricing-card.featured .cta-btn {
+            background: #f59e0b;
+            color: #1e3a5f;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+        .pricing-card .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* FAQ */
+        .faq {
+            background: #f8fafc;
+            padding: 4rem 2rem;
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e3a5f;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1e3a5f;
+            margin-bottom: 0.75rem;
+        }
+        .faq-answer {
+            color: #64748b;
+            line-height: 1.6;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .final-cta .cta-primary {
+            background: #f59e0b;
+            color: #1e3a5f;
+            padding: 1.5rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+            transition: all 0.3s;
+        }
+        .final-cta .cta-primary:hover {
+            background: #fbbf24;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .comparison { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .pricing-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="urgency">⚡ OFERTA DE LANZAMIENTO - Solo primeros 50 clientes</div>
+        <h1>¿Cansado de Perder Leads Valiosos?</h1>
+        <p class="subtitle">El CRM especializado en inmigración que convierte más clientes<br>con IA, scoring automático y 0 trabajo manual</p>
+        <button class="cta-primary" onclick="window.location.href='#pricing'">Prueba 14 Días GRATIS</button>
+        <p class="guarantee">✓ Sin tarjeta de crédito  ✓ Cancela cuando quieras  ✓ Setup en 5 minutos</p>
+    </section>
+
+    <!-- Problema/Solución -->
+    <section class="problem-solution">
+        <h2>¿Te Suena Familiar?</h2>
+        <div class="comparison">
+            <div class="comparison-box problem">
+                <h3>❌ Sin Immigration Leads</h3>
+                <ul>
+                    <li>Leads mezclados en WhatsApp, email, llamadas</li>
+                    <li>Pierdes 30% de clientes por desorganización</li>
+                    <li>Scoring manual toma 5 min por lead</li>
+                    <li>No sabes cuáles contactar primero</li>
+                    <li>Reportes manuales toman horas</li>
+                    <li>Agentes nuevos tardan semanas en ser efectivos</li>
+                </ul>
+            </div>
+            <div class="comparison-box solution">
+                <h3>✅ Con Immigration Leads</h3>
+                <ul>
+                    <li>Todos tus leads en un solo dashboard</li>
+                    <li>Conviertes 40% más con priorización IA</li>
+                    <li>Scoring automático en 0 segundos</li>
+                    <li>IA te dice exactamente qué hacer con cada lead</li>
+                    <li>Reportes automáticos en 30 segundos</li>
+                    <li>Agentes productivos desde el día 1</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <h2>Resultados Reales de Despachos Como el Tuyo</h2>
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-number">+40%</div>
+                <div class="stat-label">Más conversiones</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15h</div>
+                <div class="stat-label">Ahorradas por semana</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">€12k</div>
+                <div class="stat-label">Ingresos extra/mes</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Leads perdidos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <h2>Empieza Hoy - Oferta de Lanzamiento</h2>
+        <p class="subtitle-pricing">Solo para los primeros 50 despachos. Después el precio sube.</p>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price">€49</div>
+                <div class="price-period">por mes</div>
+                <ul>
+                    <li>Hasta 50 leads/mes</li>
+                    <li>1 usuario</li>
+                    <li>Scoring automático</li>
+                    <li>Dashboard básico</li>
+                    <li>WhatsApp integration</li>
+                    <li>Soporte por email</li>
+                </ul>
+                <button class="cta-btn" onclick="alert('Redirigiendo a checkout...')">Probar 14 días GRATIS</button>
+            </div>
+            
+            <div class="pricing-card featured">
+                <h3>Professional</h3>
+                <div class="original-price">€199/mes</div>
+                <div class="price">€99</div>
+                <div class="price-period">por mes</div>
+                <div class="discount">Ahorra €100/mes (50% OFF)</div>
+                <ul>
+                    <li>Hasta 200 leads/mes</li>
+                    <li>5 usuarios</li>
+                    <li><strong>AI Assistant completo</strong></li>
+                    <li><strong>Analytics avanzado</strong></li>
+                    <li><strong>Email automation</strong></li>
+                    <li><strong>WhatsApp + Telegram</strong></li>
+                    <li><strong>Soporte prioritario</strong></li>
+                    <li>Onboarding personalizado</li>
+                </ul>
+                <button class="cta-btn" onclick="alert('Redirigiendo a checkout...')">Probar 14 días GRATIS</button>
+            </div>
+            
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <div class="price">€299</div>
+                <div class="price-period">por mes</div>
+                <ul>
+                    <li>Leads ilimitados</li>
+                    <li>Usuarios ilimitados</li>
+                    <li>Todo de Professional +</li>
+                    <li>White-label (tu marca)</li>
+                    <li>API access</li>
+                    <li>Manager dedicado</li>
+                    <li>SLA garantizado</li>
+                    <li>Custom integrations</li>
+                </ul>
+                <button class="cta-btn" onclick="alert('Contactando equipo de ventas...')">Contactar Ventas</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-container">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">¿Realmente es gratis por 14 días?</div>
+                <div class="faq-answer">Sí, 100% gratis. No pedimos tarjeta de crédito. Si no te convence, simplemente no continúas.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Funciona para despachos pequeños (1-2 personas)?</div>
+                <div class="faq-answer">¡Absolutamente! De hecho, el plan Starter está diseñado específicamente para abogados independientes o despachos pequeños.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Qué pasa con mis datos si cancelo?</div>
+                <div class="faq-answer">Puedes exportar todos tus datos en CSV antes de cancelar. No perdemos datos nunca.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿El AI Assistant realmente funciona?</div>
+                <div class="faq-answer">Sí. Analiza cada lead y te da recomendaciones específicas basadas en probabilidad de conversión, urgencia, presupuesto y tipo de caso. Aumenta conversión promedio en 40%.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Necesito conocimientos técnicos?</div>
+                <div class="faq-answer">Cero. Si sabes usar WhatsApp, puedes usar Immigration Leads. Setup en 5 minutos.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>¿Listo para Dejar de Perder Clientes?</h2>
+        <p>Únete a los despachos que ya están convirtiendo más leads en clientes reales</p>
+        <button class="cta-primary" onclick="window.location.href='#pricing'">Empieza Tu Prueba Gratis de 14 Días</button>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">⚡ Solo quedan 23 espacios en esta oferta de lanzamiento</p>
+    </section>
+
+    <script>
+        // Countdown falso para urgencia
+        let spacesLeft = 23;
+        setInterval(() => {
+            if (Math.random() > 0.7 && spacesLeft > 10) {
+                spacesLeft--;
+                document.querySelectorAll('p').forEach(p => {
+                    if (p.textContent.includes('quedan')) {
+                        p.innerHTML = `⚡ Solo quedan ${spacesLeft} espacios en esta oferta de lanzamiento`;
+                    }
+                });
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
