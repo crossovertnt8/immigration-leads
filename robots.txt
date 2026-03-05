@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://crossovertnt8.github.io/immigration-leads/sitemap.xml
+
+# Disallow demo data
+Disallow: /demo-data.js
+
+# Allow all HTML pages
+Allow: /*.html
+Allow: /assets/
+
+# Crawl delay
+Crawl-delay: 1
