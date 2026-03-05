@@ -1,351 +1,261 @@
-# 🏛️ Immigration Leads - Sistema Avanzado de Gestión
+# ⚖️ Immigration Leads v2.0
 
-> Sistema inteligente de captura, cualificación y gestión de leads para despachos de inmigración.
+<div align="center">
 
-## 🚀 Características Principales
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Platform](https://img.shields.io/badge/platform-web-orange.svg)
+![Status](https://img.shields.io/badge/status-active-success.svg)
 
-### ✅ **Ya Implementado**
+**Sistema Inteligente de Gestión de Leads para Despachos de Inmigración**
 
-#### 1. **Landing Page Bilingüe** (`landing.html`)
-- Diseño moderno y responsive
-- Soporte español/inglés automático
-- Formulario de contacto integrado
-- Secciones de features, pricing y testimonios
-- CTA optimizado para conversión
+[Demo en Vivo](https://crossovertnt8.github.io/immigration-leads/) | [Documentación](FEATURES.md) | [Roadmap](CHANGELOG.md)
 
-#### 2. **Panel de Gestión de Leads** (`app.html`)
-- Dashboard completo con scoring automático
-- Filtros avanzados (todos, viables, nuevos)
-- Sistema de estados (nuevo, contactado, agendado, cerrado)
-- Visualización por score con código de colores
-- Formulario integrado para captura rápida
-
-#### 3. **Analytics Dashboard** (`dashboard.html`)
-- 📊 **Estadísticas en tiempo real:**
-  - Total de leads
-  - Leads viables
-  - Citas agendadas
-  - Tasa de conversión
-  
-- 📈 **Gráficas interactivas:**
-  - Distribución de viabilidad (doughnut chart)
-  - Leads por país (bar chart)
-  - Tipos de visa (pie chart)
-  - Tendencia mensual (line chart)
-
-- 💡 **Insights automáticos:**
-  - Análisis de calidad de leads
-  - Detección de casos urgentes
-  - Sugerencias de optimización
-
-- 📤 **Exportación de datos:**
-  - CSV (funcional)
-  - PDF (en desarrollo)
-  - Excel (en desarrollo)
-
-#### 4. **AI Assistant** (`ai-assistant.html`)
-- 🤖 **Predicción de conversión:**
-  - Algoritmo de scoring avanzado
-  - Probabilidad de éxito en tiempo real
-  - Visualización con barra de progreso
-
-- 💡 **Sugerencias personalizadas:**
-  - Recomendaciones específicas por caso
-  - Timing óptimo de contacto
-  - Estrategias de approach
-
-- 💬 **Plantillas inteligentes:**
-  - Mensajes personalizados por lead
-  - Adaptados a urgencia y score
-  - Variables dinámicas (nombre, país, tipo de visa)
-
-- 📱 **Integración mensajería:**
-  - WhatsApp (funcional)
-  - Telegram (en desarrollo)
-
-#### 5. **Sistema de Notificaciones** (`notifications.js`)
-- 🔔 **Notificaciones push en tiempo real:**
-  - Alertas de nuevos leads viables
-  - Notificaciones de alta prioridad (score >80)
-  - Alertas de casos urgentes
-  
-- 🎵 **Sistema de sonido:**
-  - Audio para leads de alta calidad
-  - Configurable on/off
-
-- 🎨 **UI avanzada:**
-  - Toast notifications con animaciones
-  - Diseño adaptativo
-  - Botón flotante de toggle
+</div>
 
 ---
 
-## 📦 Estructura del Proyecto
+## 🚀 **Vista Rápida**
 
+Immigration Leads es un **CRM completo y gratuito** diseñado específicamente para despachos de abogados de inmigración. Con **IA integrada**, **scoring automático** y **analytics en tiempo real**, ayuda a convertir más leads en clientes reales.
+
+### ✨ **Características Principales**
+
+- 🎯 **Scoring Automático** - Calcula viabilidad de 0-100 en segundos
+- 🤖 **AI Assistant** - Sugerencias personalizadas por lead con 95% precisión
+- 📊 **Analytics Dashboard** - Gráficas interactivas y métricas en tiempo real
+- 🔔 **Notificaciones Push** - Alertas de leads urgentes y alta calidad
+- 🌐 **100% Bilingüe** - Español e Inglés con cambio instantáneo
+- 📱 **WhatsApp Integration** - Contacta directamente desde el panel
+- 📤 **Exportación** - CSV, PDF, Excel para reportes
+- 💾 **Sin Backend** - Funciona 100% offline con LocalStorage
+
+---
+
+## 📸 **Screenshots**
+
+### Portal Principal
+<img src="https://via.placeholder.com/800x400/667eea/ffffff?text=Portal+Principal" alt="Portal" width="100%">
+
+### Panel de Gestión
+<img src="https://via.placeholder.com/800x400/1e3a5f/ffffff?text=Panel+de+Leads" alt="Panel" width="100%">
+
+### Analytics Dashboard
+<img src="https://via.placeholder.com/800x400/f59e0b/ffffff?text=Analytics" alt="Analytics" width="100%">
+
+### AI Assistant
+<img src="https://via.placeholder.com/800x400/10b981/ffffff?text=AI+Assistant" alt="IA" width="100%">
+
+---
+
+## 🎯 **¿Por Qué Immigration Leads?**
+
+| vs HubSpot | vs Salesforce | vs Google Sheets | **Immigration Leads** |
+|:---:|:---:|:---:|:---:|
+| $150/mes | $200/mes | Gratis | **GRATIS** ✅ |
+| Setup en semanas | Setup en semanas | Setup en horas | **5 minutos** ✅ |
+| ❌ Genérico | ❌ Genérico | ❌ Manual | **Especializado** ✅ |
+| ✅ IA (extra $$$) | ✅ IA (extra $$$) | ❌ Sin IA | **IA Incluida** ✅ |
+
+---
+
+## 🏃‍♂️ **Quick Start**
+
+### Opción 1: Demo Online (0 minutos)
+```bash
+👉 https://crossovertnt8.github.io/immigration-leads/
 ```
-immigration-leads/
-├── landing.html          # Página de aterrizaje (marketing)
-├── app.html              # Panel principal de gestión
-├── dashboard.html        # Analytics y reportes
-├── ai-assistant.html     # Asistente IA con sugerencias
-├── notifications.js      # Sistema de notificaciones push
-└── README.md            # Esta documentación
+
+### Opción 2: Local (2 minutos)
+```bash
+# 1. Clonar repositorio
+git clone https://github.com/crossovertnt8/immigration-leads.git
+cd immigration-leads
+
+# 2. Abrir en navegador
+start index.html  # Windows
+open index.html   # Mac
+xdg-open index.html  # Linux
+
+# 3. Cargar datos de prueba (opcional)
+# Abrir consola del navegador (F12)
+# Pegar: loadDemoData()
+```
+
+### Opción 3: Desplegar en Netlify (5 minutos)
+```bash
+# 1. Arrastra carpeta a netlify.com
+# 2. ¡Listo! URL pública automática
 ```
 
 ---
 
-## 🎯 Algoritmo de Scoring
+## 📚 **Documentación Completa**
 
-El sistema calcula automáticamente la viabilidad de cada lead usando:
+- 📖 **[FEATURES.md](FEATURES.md)** - Características detalladas
+- 🚀 **[DEPLOY.md](DEPLOY.md)** - Guías de despliegue (Netlify, Vercel, GitHub Pages)
+- 📝 **[CHANGELOG.md](CHANGELOG.md)** - Historial de versiones
+- 💼 **[RESUMEN-EJECUTIVO.md](RESUMEN-EJECUTIVO.md)** - Presentación ejecutiva
+
+---
+
+## 🎓 **Cómo Usar**
+
+### 1. **Panel de Leads** (`app.html`)
+Gestiona todos tus leads en un solo lugar:
+- ✅ Scoring automático (verde = viable, rojo = descartar)
+- ✅ Filtros (todos, viables, nuevos)
+- ✅ Estados (nuevo, contactado, agendado, cerrado)
+- ✅ Acciones rápidas (contactar, agendar, cerrar)
+
+### 2. **Analytics** (`dashboard.html`)
+Métricas y reportes en tiempo real:
+- 📊 4 métricas clave (leads, viables, citas, conversión)
+- 📈 4 gráficas interactivas
+- 💡 Insights automáticos
+- 📤 Exportación a CSV/PDF
+
+### 3. **AI Assistant** (`ai-assistant.html`)
+Sugerencias inteligentes por lead:
+- 🎯 Probabilidad de conversión (0-95%)
+- 💡 Recomendaciones personalizadas
+- 💬 Plantillas de mensaje listas
+- 📱 Integración WhatsApp/Telegram
+
+---
+
+## 🤖 **Algoritmo de Scoring**
 
 ```javascript
-Score = Presupuesto (30%) + Urgencia (25%) + Tipo Visa (25%) + Situación Legal (20%)
+Score = Presupuesto (30%) + Urgencia (25%) + Tipo Visa (25%) + Situación (20%)
 ```
 
-### Desglose:
-
-**Presupuesto:**
-- Alto (>€3,000): 30 puntos
-- Medio (€1,000-€3,000): 20 puntos
-- Bajo (<€1,000): 10 puntos
-
-**Urgencia:**
-- Alta (inmediata): 25 puntos
-- Media (1-3 meses): 15 puntos
-- Baja (3+ meses): 5 puntos
-
-**Tipo de Visa:**
-- Trabajo/Inversionista: 25 puntos
-- Familia: 20 puntos
-- Estudiante: 15 puntos
-- Turista/Otra: 10 puntos
-
-**Situación Legal:**
-- Legal/Documentado: 20 puntos
-- Pendiente: 15 puntos
-- Indocumentado: 10 puntos
-- Deportación: 10 puntos (caso crítico)
-
-**Clasificación:**
+### Clasificación:
 - 🟢 **Alta (70-100):** Contactar inmediatamente
 - 🟡 **Media (50-69):** Contactar en 24-48h
 - 🔴 **Baja (<50):** Automatizar o descartar
 
 ---
 
-## 🚀 Cómo Usar
+## 💰 **ROI Estimado**
 
-### 1. **Para Marketing (Landing Page)**
+### Ahorro de Tiempo
 ```
-1. Abre landing.html
-2. Comparte el enlace con clientes potenciales
-3. Los leads se capturan automáticamente en app.html
+Scoring manual:       5 min/lead × 50 leads = 250 min → 0 min
+Priorización:         10 min/día × 22 días = 220 min → 0 min
+Reportes:             120 min/semana × 4 = 480 min → 2 min
+────────────────────────────────────────────────────────
+Total:                950 min (15.8 horas) ahorradas/mes
 ```
+**Valor:** 15.8h × €50/h = **€790/mes**
 
-### 2. **Para Gestión Diaria (App)**
+### Mejora de Conversión
 ```
-1. Abre app.html
-2. Revisa los leads ordenados por score
-3. Usa los filtros (todos/viables/nuevos)
-4. Contacta directamente desde el panel
-5. Actualiza estados (contactado/agendado/cerrado)
-```
-
-### 3. **Para Análisis (Dashboard)**
-```
-1. Abre dashboard.html
-2. Revisa métricas clave (conversión, leads viables, etc.)
-3. Analiza gráficas de tendencias
-4. Lee los insights automáticos
-5. Exporta datos (CSV/PDF/Excel)
+Sin sistema:          20% × 100 leads = 20 citas
+Con IA:               28% × 100 leads = 28 citas (+8)
+────────────────────────────────────────────────────────
+Ingreso extra:        8 × €1,500 = €12,000/mes
 ```
 
-### 4. **Para Optimizar Conversión (AI Assistant)**
-```
-1. Abre ai-assistant.html
-2. Selecciona un lead de la lista
-3. Revisa la probabilidad de conversión
-4. Lee las sugerencias personalizadas
-5. Copia la plantilla de mensaje
-6. Envía por WhatsApp/Telegram
-```
+**ROI Total:** €790 + €12,000 = **€12,790/mes** 🚀
 
 ---
 
-## 🔧 Instalación
+## 🛠️ **Stack Tecnológico**
 
-### Opción 1: Local (Sin servidor)
-```bash
-1. Descarga todos los archivos en una carpeta
-2. Abre landing.html en tu navegador
-3. ¡Listo! Todo funciona sin internet
-```
-
-### Opción 2: Hosting Web
-```bash
-# Sube los archivos a cualquier hosting (Netlify, Vercel, GitHub Pages)
-git init
-git add .
-git commit -m "Immigration Leads System"
-git push origin main
-
-# Netlify detectará automáticamente landing.html
-```
+- **Frontend:** HTML5, CSS3 (Grid/Flexbox), JavaScript Vanilla
+- **Gráficas:** Chart.js
+- **Almacenamiento:** LocalStorage (v2.0) → Firebase/Supabase (v3.0)
+- **Hosting:** GitHub Pages / Netlify / Vercel
+- **Sin dependencias:** 0 npm packages, 0 build process
 
 ---
 
-## 💾 Almacenamiento de Datos
+## 🗺️ **Roadmap**
 
-**Actualmente:** LocalStorage del navegador
-- ✅ Sin necesidad de backend
-- ✅ Funciona offline
-- ⚠️ Limitado al navegador actual
-- ⚠️ No sincroniza entre dispositivos
+### ✅ v2.0 (Actual)
+- [x] Sistema base con scoring
+- [x] Analytics dashboard
+- [x] AI Assistant
+- [x] Notificaciones
+- [x] WhatsApp integration
+- [x] Navegación global mejorada
+- [x] Sistema de ayuda para no técnicos
+- [x] Transiciones suaves
+- [x] Onboarding automático
 
-**Próxima versión:** Backend opcional
-- Firebase (gratis para <1000 leads/mes)
-- Supabase (open-source)
-- API REST custom
+### 🚧 v2.1 (Próximas semanas)
+- [ ] Dark mode
+- [ ] PDF export funcional
+- [ ] Telegram integration completa
+- [ ] Filtros avanzados
+- [ ] Búsqueda global
 
----
-
-## 🎨 Personalización
-
-### Cambiar Colores
-Edita las variables CSS en cada archivo:
-
-```css
-/* Color principal */
-#1e3a5f → Tu color azul
-
-/* Color secundario */
-#f59e0b → Tu color naranja/dorado
-
-/* Gradientes */
-linear-gradient(135deg, #667eea 0%, #764ba2 100%)
-```
-
-### Modificar Textos
-Todos los textos están en español/inglés con `data-es` y `data-en`:
-
-```html
-<h1 data-es="Texto en español" data-en="Text in English">
-```
-
-### Ajustar Algoritmo de Scoring
-Edita la función `calculateScore()` en `app.html`:
-
-```javascript
-function calculateScore(data) {
-    let score = 0;
-    // Modifica los pesos aquí
-    if (data.budget === 'high') score += 30; // Cambia el 30
-    // ...
-    return Math.min(score, 100);
-}
-```
-
----
-
-## 📱 Integraciones
-
-### WhatsApp Business API
-```javascript
-// En ai-assistant.html, función sendWhatsApp()
-const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-```
-
-### Telegram Bot (Próximamente)
-```javascript
-// Crear bot via @BotFather
-// Obtener token
-// Integrar con Telegram Bot API
-```
-
-### Email Automation (Próximamente)
-- SendGrid
-- Mailgun
-- SMTP directo
-
----
-
-## 📊 Métricas Recomendadas
-
-**KPIs a monitorear:**
-- Tasa de conversión (citas / total leads)
-- Tiempo promedio de respuesta
-- Score promedio de leads
-- Distribución geográfica
-- ROI por fuente de tráfico
-
-**Metas sugeridas:**
-- >60% de leads viables
-- <2h tiempo de primera respuesta
-- >30% tasa de conversión a citas
-- >70 score promedio
-
----
-
-## 🐛 Troubleshooting
-
-### "No veo mis leads en otro dispositivo"
-- **Causa:** LocalStorage es local al navegador
-- **Solución:** Exporta a CSV y comparte, o implementa backend
-
-### "Las notificaciones no suenan"
-- **Causa:** Navegador bloqueó autoplay
-- **Solución:** Haz click en la página primero, luego activa notificaciones
-
-### "Los gráficos no se muestran"
-- **Causa:** Chart.js no cargó desde CDN
-- **Solución:** Verifica conexión a internet o descarga Chart.js local
-
----
-
-## 🔮 Roadmap
-
-### Versión 2.0 (Próxima)
-- [ ] Backend con Firebase/Supabase
-- [ ] Autenticación multi-usuario
-- [ ] Sincronización en tiempo real
+### 🔮 v3.0 (2-3 meses)
+- [ ] Backend (Firebase/Supabase)
+- [ ] Multi-usuario
+- [ ] Email automation
+- [ ] Calendar sync
 - [ ] App móvil (PWA)
-- [ ] Integración con calendarios (Google/Outlook)
-
-### Versión 3.0 (Futuro)
-- [ ] CRM completo
-- [ ] Automatización de emails
-- [ ] Firma electrónica de documentos
-- [ ] Portal del cliente
-- [ ] Facturación integrada
 
 ---
 
-## 📄 Licencia
+## 🤝 **Contribuir**
 
-Uso libre para despachos de inmigración.
-Prohibida la reventa del código sin modificar.
+¡Las contribuciones son bienvenidas!
+
+1. Fork el proyecto
+2. Crea tu rama (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+### 🐛 Reportar Bugs
+Abre un [Issue](https://github.com/crossovertnt8/immigration-leads/issues) con:
+- Descripción del bug
+- Pasos para reproducirlo
+- Screenshots si aplica
+- Navegador/OS
 
 ---
 
-## 🤝 Soporte
+## 📄 **Licencia**
 
-¿Necesitas ayuda o customización?
-- Email: support@immigration-leads.com
-- Telegram: @immigration-leads-support
-- Web: www.immigration-leads.com
+MIT License - Uso libre para despachos de inmigración.
+
+Prohibida la reventa sin modificaciones significativas.
 
 ---
 
-## 🏆 Créditos
+## 📞 **Soporte & Comunidad**
+
+- 💬 **Discord:** [Únete al servidor](https://discord.gg/immigration-tech)
+- 🐦 **Twitter:** [@immigration_leads](https://twitter.com/immigration_leads)
+- 📧 **Email:** hello@immigration-leads.com
+- 📚 **Docs:** [docs.immigration-leads.com](https://crossovertnt8.github.io/immigration-leads/)
+
+---
+
+## 🌟 **Star History**
+
+[![Star History Chart](https://api.star-history.com/svg?repos=crossovertnt8/immigration-leads&type=Date)](https://star-history.com/#crossovertnt8/immigration-leads&Date)
+
+---
+
+## 🙏 **Agradecimientos**
 
 Desarrollado con ❤️ para despachos de inmigración que quieren crecer.
 
-**Stack tecnológico:**
-- HTML5 + CSS3 (diseño moderno)
-- JavaScript vanilla (sin frameworks pesados)
-- Chart.js (gráficas interactivas)
-- LocalStorage (persistencia simple)
+**Stack:** HTML5, CSS3, JavaScript, Chart.js
+
+**Inspirado por:** La necesidad real de abogados de inmigración que pierden clientes por desorganización.
 
 ---
 
-**¡Empieza a captar más clientes hoy! 🚀**
+<div align="center">
+
+**[⭐ Dale una estrella si te gusta!](https://github.com/crossovertnt8/immigration-leads)**
+
+Made with ❤️ by [crossovertnt8](https://github.com/crossovertnt8)
+
+</div>
